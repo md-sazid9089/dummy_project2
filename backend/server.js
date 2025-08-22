@@ -6,6 +6,7 @@ import housingRoutes from './routes/housing.js';
 import shopRoutes from './routes/shops.js';
 import maidRoutes from './routes/maids.js';
 import userRoutes from './routes/user.js';
+import healthRoutes from './routes/health.js';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -21,6 +22,7 @@ app.prepare().then(() => {
   server.use('/api/shops', shopRoutes);
   server.use('/api/maids', maidRoutes);
   server.use('/api/user', userRoutes);
+  server.use('/api/health', healthRoutes);
 
   server.all('*', (req, res) => handle(req, res));
 
